@@ -1,0 +1,184 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+
+$custom-font: 'Niconne', cursive;
+$general-font: Arial, Helvetica, sans-serif;
+
+
+body{
+    font-family: $custom-font;
+    font-weight: normal;
+}
+
+h1{
+    text-align: center;
+    font-size: 5rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h2 {
+    text-align: left;
+    padding-left: 15%;
+}
+
+#choose-a-diet{
+    margin-bottom: 20px;
+}
+
+.navbar {
+    .nav-link{
+        font-size: 2rem;
+        text-align: center;
+    }
+    .dropdown-menu{
+        .dropdown-item{
+            font-size: 2rem;
+            // vertical-align: right;
+            text-align: center;
+        }
+    }
+}
+
+@mixin normal-image-size {
+    width: 380px;
+    height: 280px;
+}
+
+@mixin small-image-size{
+    width: 280px;
+    height: 180px;
+}
+
+img {
+  border-radius: 4px;
+  padding: 10px;
+  @include normal-image-size();
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+// make home screen smaller for mobile users
+@media only screen and (max-width: 600px) {
+    img{
+        @include small-image-size();
+    }
+
+    h1{
+        font-size: 2.5rem;
+    }
+
+    h2{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .navbar {
+        .nav-link{
+            font-size: 1.5rem;
+        }
+        .dropdown-menu{
+            .dropdown-item{
+                font-size: 1.5rem;
+                text-align: center;
+        }
+        }
+    }
+    .container{
+    padding-left: 25%;
+    padding-right: 25%;
+    }
+    
+ }
+
+ #fasting-table{
+    margin: auto;
+    width: 50% !important;
+    th, tr{
+        font-family: $general-font;
+    }
+    background-color: rgba(255, 255, 255, 0.75);
+ }
+
+
+.view{
+    height: 100vh;
+}
+
+.image-container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 200%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.image-container:hover .overlay {
+  opacity: 0.85;
+}
+
+.image-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #edededb6;
+   text-align: center;
+}
+
+
+#big-footer{
+    color: rgba(0, 0, 0, 0.673);
+    font-family: $general-font;
+    visibility: visible;
+    font-size: 80%;
+}
+
+#small-footer{
+    @extend #big-footer;
+    visibility: hidden;
+}
+
+// disclamer dissapears when too small
+@media screen and (max-width: 1124px){
+    #big-footer {
+         visibility: hidden;
+    }
+    #small-footer{
+        visibility: visible;
+    }
+}
+
+
+#balanced_h1, #vegan_h1{
+    color: invert($color: #000000);
+}
